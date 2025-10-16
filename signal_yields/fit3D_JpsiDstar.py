@@ -729,7 +729,7 @@ if (args.fit):
     import time
 
     tstart = time.time()
-    for opt in config.cases.values():
+    for opt in config.option.values():
         fit3DJpsiDstar(opt)
     print(f'Finished in: {( time.time() - tstart)} s')
 

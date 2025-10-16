@@ -1,6 +1,73 @@
+# Cases for systematic uncertainty
+# 1: nominal fit
+# 2: J/ψ signal: change crystal ball + gaussian to crystal ball only.
+# 3: J/ψ background: change exponential function to linear function.
+# 4: J/ψ prompt: change Resolution function to gaussian.
+# 5: D∗ background: change threshold function to phenomenological threshold function
+
+case = 1
+
 set = 'Charmonium_all_vtx0p05_sigma_eff_jpsi_pt_bin1_25_100'
 
-cases={set : [{'fit_parameters' : {# Jpsi Mass
+# PDFs
+
+if case == 1:
+
+    dstar_pdf = {'signal': 'johnson', # signal: johnson (default), doubleG (?)
+                'background': 'ntf'} # background: ntf (default), ptf
+
+    jpsi_mass_pdf = {'signal': 'CBG', # signal: CBG (default), CB
+                    'background': 'exp'} #background: exp (default), linear
+
+    jpsi_pdf = {'prompt' : 'resolG',  # prompt: resolG (default), GA (gaussian)
+                'non_prompt' : 'resol'} # non_prompt: resol (default), GA (gaussian)
+
+elif case == 2:
+
+    dstar_pdf = {'signal': 'johnson', # signal: johnson (default), doubleG (?)
+                'background': 'ntf'} # background: ntf (default), ptf
+
+    jpsi_mass_pdf = {'signal': 'CB', # signal: CBG (default), CB
+                    'background': 'exp'} #background: exp (default), linear
+
+    jpsi_pdf = {'prompt' : 'resolG',  # prompt: resolG (default), GA (gaussian)
+                'non_prompt' : 'resol'} # non_prompt: resol (default), GA (gaussian)
+    
+elif case == 3:
+
+    dstar_pdf = {'signal': 'johnson', # signal: johnson (default), doubleG (?)
+                'background': 'ntf'} # background: ntf (default), ptf
+
+    jpsi_mass_pdf = {'signal': 'CBG', # signal: CBG (default), CB
+                    'background': 'linear'} #background: exp (default), linear
+
+    jpsi_pdf = {'prompt' : 'resolG',  # prompt: resolG (default), GA (gaussian)
+                'non_prompt' : 'resol'} # non_prompt: resol (default), GA (gaussian)
+    
+elif case == 4:
+
+    dstar_pdf = {'signal': 'johnson', # signal: johnson (default), doubleG (?)
+                'background': 'ntf'} # background: ntf (default), ptf
+
+    jpsi_mass_pdf = {'signal': 'CBG', # signal: CBG (default), CB
+                    'background': 'exp'} #background: exp (default), linear
+
+    jpsi_pdf = {'prompt' : 'GA',  # prompt: resolG (default), GA (gaussian)
+                'non_prompt' : 'resol'} # non_prompt: resol (default), GA (gaussian)
+    
+elif case == 5:
+
+    dstar_pdf = {'signal': 'johnson', # signal: johnson (default), doubleG (?)
+                'background': 'ptf'} # background: ntf (default), ptf
+
+    jpsi_mass_pdf = {'signal': 'CBG', # signal: CBG (default), CB
+                    'background': 'exp'} #background: exp (default), linear
+
+    jpsi_pdf = {'prompt' : 'resolG',  # prompt: resolG (default), GA (gaussian)
+                'non_prompt' : 'resol'} # non_prompt: resol (default), GA (gaussian)
+
+                                                                                                                                                                                                                                                                                                                                                       
+option={set : [{'fit_parameters' : {# Jpsi Mass
                                                      #'mean_jpsi' : [3.09423e+00, 3.08, 3.10], 
                                                      'mean_jpsi' : [3.09423e+00, 3.08, 3.10], 
                                                      'sigma_gauss' : [3.90710e-02, 0.009, 0.070], 
@@ -62,33 +129,17 @@ cases={set : [{'fit_parameters' : {# Jpsi Mass
                                                      'bkg5_frac' : [0.50, 0.0001, 1],
                                                      'bkg6_frac' : [0.10, 0.0001, 1],}},
                                                      
-                                            {'files' : ['fit_plots/' + set + '_Jpsi_mass_component_3Dfit.png',
-                                                        'fit_plots/' + set + '_Jpsi_mass_pull.png',
-                                                        'fit_plots/' + set + '_Jpsi_dl_component_3Dfit.png',
-                                                        'fit_plots/' + set + '_Jpsi_dl_pull.png',
-                                                        'fit_plots/' + set + '_Dstar_component_3Dfit.png',
-                                                        'fit_plots/' + set + '_Dstar_pull.png',
-                                                         set +'_wspace', 
-                                                        'fit_root_files/' + set + '_3Dfit.root',
+                                            {'files' : ['fit_plots/' + set + '_Jpsi_mass_component_3Dfit' + '_case_' +str(case)+ '.png',
+                                                        'fit_plots/' + set + '_Jpsi_mass_pull' + '_case_' +str(case)+ '.png',
+                                                        'fit_plots/' + set + '_Jpsi_dl_component_3Dfit' + '_case_' +str(case)+ '.png',
+                                                        'fit_plots/' + set + '_Jpsi_dl_pull' + '_case_' +str(case)+ '.png',
+                                                        'fit_plots/' + set + '_Dstar_component_3Dfit' + '_case_' +str(case)+ '.png',
+                                                        'fit_plots/' + set + '_Dstar_pull' + '_case_' +str(case)+ '.png',
+                                                         set +'_wspace' + '_case_' +str(case) , 
+                                                        'fit_root_files/' + set + '_case_' +str(case)+ '_3Dfit.root',
                                                         'data_root_files/' + set + '.root']}],} 
 
-# PDFs
 
-dstar_pdf = {'signal': 'johnson', # signal: johnson (default), doubleG (?)
-             'background': 'ntf'} # background: ntf (default), ptf
-
-jpsi_mass_pdf = {'signal': 'CBG', # signal: CBG (default), CB
-                 'background': 'exp'} #background: exp (default), linear
-
-jpsi_pdf = {'prompt' : 'resolG',  # prompt: resolG (default), GA (gaussian)
-            'non_prompt' : 'resol'} # non_prompt: resol (default), GA (gaussian)
-
-# Luminosity
-#lumi = "13.09 fb^{-1}" #2016-pre-VFP
-#lumi = "13.26 fb^{-1}" #2016-pos-VFP
-#lumi = "41.48 fb^{-1}" #2017
-#lumi = "4.8 fb^{-1}" #2017 - RunB
-#lumi = "57.69 fb^{-1}" #2018
 lumi = "126.8 fb^{-1}" # Run 2
 
 # Chi square
@@ -102,9 +153,9 @@ colors = {"model" : 2, "signal" : 4, "background" : 3}
 styles = {"model" : 1, "signal" : 1, "background" : 2}
 
 ###################################### Config for yields and fom ######################################
-yield_files = ['fit_root_files/' + set + '_wspace',]
+yield_files = ['fit_root_files/' + set + '_wspace' + '_case_' +str(case),]
 
-csv_name = 'csv/' + set + '_3D.csv'
+csv_name = 'csv/' + set + '_case_' +str(case)+ '_3Dfit.csv'
 
 #case = [3.0, 2.9, 2.8, 2.7, 2.6, 2.5, 2.0, 1.5, 1.0]
 

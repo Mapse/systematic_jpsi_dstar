@@ -58,6 +58,6 @@ b) Yields
 
 Before doing this, you must perform step a) first! Then, you run  this command:
 
-`python3 fit3D_JpsiDstar.py -f`
+`python3 fit3D_JpsiDstar.py -y`
 
 If everything worked well you will see in the end the yield values in the terminal and the files _Charmonium_all_vtx0p05_sigma_eff_jpsi_pt_bin1_25_100_case_1_3Dfit_pdf_params.csv_ and _Charmonium_all_vtx0p05_sigma_eff_jpsi_pt_bin1_25_100_case_1_3Dfit_yields.csv_ are created at _fit_root_files_  folder and Charmonium_all_vtx0p05_sigma_eff_jpsi_pt_bin1_25_100_case_1_3Dfit.csv is created at csv folder.

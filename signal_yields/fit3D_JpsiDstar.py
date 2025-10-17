@@ -232,7 +232,7 @@ def fit3DJpsiDstar(opt):
     
     # Frame for Jpsi mass
     frame_jpsi_mass = jpsi_mass.frame(ROOT.RooFit.Title("Dimuon Invariant mass"))
-    frame_jpsi_mass.GetXaxis().SetTitle("#M_{\mu^+\mu^-} \ [GeV/c^2]")
+    frame_jpsi_mass.GetXaxis().SetTitle(r"#M_{\mu^+\mu^-} \ [GeV/c^2]")
     
     # Plot the Jpsi data
     data.plotOn(frame_jpsi_mass, ROOT.RooFit.Name("Data"), ROOT.RooFit.DataError(ROOT.RooAbsData.SumW2))
@@ -261,13 +261,13 @@ def fit3DJpsiDstar(opt):
     leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Data"), "Data", "LEP")
     leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("model3D"), "Model Fit", "L")
     leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Signal"), "Signal Fit", "L") #"#Signal \ M_{\mu^+\mu^-}, \ Prompt, J/\psi \ Signal \ D^*"
-    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 1"), "#Signal \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Background \ D^*", "L")
-    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 2"), "#Signal \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Signal \ D^*", "L")
-    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 3"), "#Signal \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Background \ D^*", "L")
-    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 4"), "#Background \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Signal \ D^*", "L")
-    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 5"), "#Background \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Background \ D^*", "L")
-    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 6"), "#Background \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Signal \ D^*", "L")
-    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 7"), "#Background \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Background \ D^*", "L")
+    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 1"), r"#Signal \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Background \ D^*", "L")
+    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 2"), r"#Signal \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Signal \ D^*", "L")
+    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 3"), r"#Signal \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Background \ D^*", "L")
+    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 4"), r"#Background \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Signal \ D^*", "L")
+    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 5"), r"#Background \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Background \ D^*", "L")
+    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 6"), r"#Background \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Signal \ D^*", "L")
+    leg_jpsi_mass.AddEntry(frame_jpsi_mass.findObject("Background 7"), r"#Background \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Background \ D^*", "L")
 
     frame_jpsi_mass.Draw()
     leg_jpsi_mass.Draw("same")
@@ -294,7 +294,7 @@ def fit3DJpsiDstar(opt):
 
     # New frame to draw pull distribution
     frame_pull_jpsi_mass = jpsi_mass.frame(ROOT.RooFit.Title("Pull Distribution"))
-    frame_pull_jpsi_mass.GetXaxis().SetTitle("#M_{\mu^+\mu^-} \ [GeV/c^2]")
+    frame_pull_jpsi_mass.GetXaxis().SetTitle(r"#M_{\mu^+\mu^-} \ [GeV/c^2]")
 
     # Add the distribution to the frame
     frame_pull_jpsi_mass.addPlotable(histpull_jpsi_mass, "P")
@@ -317,7 +317,7 @@ def fit3DJpsiDstar(opt):
     ### Jpsi dl
 
     frame_jpsi_dl = jpsi_dl.frame(ROOT.RooFit.Title(""))
-    frame_jpsi_dl.GetXaxis().SetTitle("#l_{J/\psi}\ [mm]")
+    frame_jpsi_dl.GetXaxis().SetTitle(r"#l_{J/\psi}\ [mm]")
 
     data.plotOn(frame_jpsi_dl, ROOT.RooFit.Name("jpsi_dl"), ROOT.RooFit.Name("Data"), ROOT.RooFit.DataError(ROOT.RooAbsData.SumW2))
 
@@ -348,13 +348,13 @@ def fit3DJpsiDstar(opt):
     leg_dl.AddEntry(frame_jpsi_dl.findObject("Data"), "Data", "LEP")
     leg_dl.AddEntry(frame_jpsi_dl.findObject("model3D"), "Model Fit", "L")
     leg_dl.AddEntry(frame_jpsi_dl.findObject("Signal"), "Signal Fit", "L")
-    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 1"), "#Signal \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Background \ D^*", "L")
-    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 2"), "#Signal \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Signal \ D^*", "L")
-    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 3"), "#Signal \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Background \ D^*", "L")
-    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 4"), "#Background \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Signal \ D^*", "L")
-    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 5"), "#Background \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Background \ D^*", "L")
-    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 6"), "#Background \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Signal \ D^*", "L")
-    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 7"), "#Background \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Background \ D^*", "L")
+    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 1"), r"#Signal \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Background \ D^*", "L")
+    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 2"), r"#Signal \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Signal \ D^*", "L")
+    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 3"), r"#Signal \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Background \ D^*", "L")
+    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 4"), r"#Background \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Signal \ D^*", "L")
+    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 5"), r"#Background \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Background \ D^*", "L")
+    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 6"), r"#Background \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Signal \ D^*", "L")
+    leg_dl.AddEntry(frame_jpsi_dl.findObject("Background 7"), r"#Background \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Background \ D^*", "L")
 
     frame_jpsi_dl.Draw()
     leg_dl.Draw("same")
@@ -381,7 +381,7 @@ def fit3DJpsiDstar(opt):
 
     # New frame to draw pull distribution
     frame_pull_jpsi_dl = jpsi_dl.frame(ROOT.RooFit.Title("Pull Distribution"))
-    frame_pull_jpsi_dl.GetXaxis().SetTitle("#l_{J/\psi}\ [mm]")
+    frame_pull_jpsi_dl.GetXaxis().SetTitle(r"#l_{J/\psi}\ [mm]")
 
     # Add the distribution to the frame
     frame_pull_jpsi_dl.addPlotable(histpull_jpsi_dl, "P")
@@ -404,7 +404,7 @@ def fit3DJpsiDstar(opt):
     ### Dstar
 
     frame_dstar = dstar_mass.frame(ROOT.RooFit.Title(""))
-    frame_dstar.GetXaxis().SetTitle("#M_{K\pi\pi}-M_{K\pi} \ [GeV/c^2]")
+    frame_dstar.GetXaxis().SetTitle(r"#M_{K\pi\pi}-M_{K\pi} \ [GeV/c^2]")
 
     data.plotOn(frame_dstar, ROOT.RooFit.Name("dstar_mass"), ROOT.RooFit.Name("Data"), ROOT.RooFit.DataError(ROOT.RooAbsData.SumW2))
 
@@ -435,13 +435,13 @@ def fit3DJpsiDstar(opt):
     leg_dstar.AddEntry(frame_dstar.findObject("Data"), "Data", "LEP")
     leg_dstar.AddEntry(frame_dstar.findObject("model3D"), "Model Fit", "L")
     leg_dstar.AddEntry(frame_dstar.findObject("Signal"), "Signal Fit", "L")
-    leg_dstar.AddEntry(frame_dstar.findObject("Background 1"), "#Signal \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Background \ D^*", "L")
-    leg_dstar.AddEntry(frame_dstar.findObject("Background 2"), "#Signal \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Signal \ D^*", "L")
-    leg_dstar.AddEntry(frame_dstar.findObject("Background 3"), "#Signal \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Background \ D^*", "L")
-    leg_dstar.AddEntry(frame_dstar.findObject("Background 4"), "#Background \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Signal \ D^*", "L")
-    leg_dstar.AddEntry(frame_dstar.findObject("Background 5"), "#Background \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Background \ D^*", "L")
-    leg_dstar.AddEntry(frame_dstar.findObject("Background 6"), "#Background \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Signal \ D^*", "L")
-    leg_dstar.AddEntry(frame_dstar.findObject("Background 7"), "#Background \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Background \ D^*", "L")
+    leg_dstar.AddEntry(frame_dstar.findObject("Background 1"), r"#Signal \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Background \ D^*", "L")
+    leg_dstar.AddEntry(frame_dstar.findObject("Background 2"), r"#Signal \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Signal \ D^*", "L")
+    leg_dstar.AddEntry(frame_dstar.findObject("Background 3"), r"#Signal \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Background \ D^*", "L")
+    leg_dstar.AddEntry(frame_dstar.findObject("Background 4"), r"#Background \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Signal \ D^*", "L")
+    leg_dstar.AddEntry(frame_dstar.findObject("Background 5"), r"#Background \ M_{\mu^+\mu^-}, \ Prompt \ J/\psi, \ Background \ D^*", "L")
+    leg_dstar.AddEntry(frame_dstar.findObject("Background 6"), r"#Background \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Signal \ D^*", "L")
+    leg_dstar.AddEntry(frame_dstar.findObject("Background 7"), r"#Background \ M_{\mu^+\mu^-}, \ No-Prompt \ J/\psi, \ Background \ D^*", "L")
 
     frame_dstar.Draw()
     leg_dstar.Draw("same")
@@ -468,7 +468,7 @@ def fit3DJpsiDstar(opt):
 
     # New frame to draw pull distribution
     frame_pull_dstar = dstar_mass.frame(ROOT.RooFit.Title("Pull Distribution"))
-    frame_pull_dstar.GetXaxis().SetTitle("#M_{K\pi\pi}-M_{K\pi} \ [GeV/c^2]")
+    frame_pull_dstar.GetXaxis().SetTitle(r"#M_{K\pi\pi}-M_{K\pi} \ [GeV/c^2]")
 
     # Add the distribution to the frame
     frame_pull_dstar.addPlotable(histpull_dstar, "P")
@@ -508,11 +508,18 @@ def fit3DJpsiDstar(opt):
     print(f"Xi square for Dstar is: {chi_square_dstar}")
     
     with open(opt[1]['files'][7].replace('.root', '') + '.txt', 'w') as f:
+        
         f.write(str(chi_square_jpsi_mass))
         f.write('\n')
         f.write(str(chi_square_jpsi_dl))
         f.write('\n')
         f.write(str(chi_square_dstar))
+
+        # Takes the case name pro print
+        case_name = opt[1]['files'][7]
+        cn = case_name[case_name.find("case"):case_name.find("case") + len("case") + 2]
+
+        print(f"Case processed: {cn}")
 
 def yields_jpsidstar(yield_list=config.yield_files):
 
@@ -522,6 +529,7 @@ def yields_jpsidstar(yield_list=config.yield_files):
     with open(config.csv_name, 'w') as c:
         # Creates the csv writer
         writer = csv.writer(c)
+        print(f"Processing file: {config.csv_name}")
         # write a row to the csv file
         header = ['Case', 'N_evts_total', 'N_signal', 'N_signal_err', 
                   'N_background', 'N_background_err', 'N_non_prompt',
@@ -539,10 +547,10 @@ def yields_jpsidstar(yield_list=config.yield_files):
                 chi_square_dstar = float(list_chi[2])
                
             file_root = ROOT.TFile(f.replace('_wspace', '') + '_3Dfit.root')
-            print()
+            
             wspace = file_root.Get(f.replace('fit_root_files/', ''))
 
-            print(wspace.var(""))
+            #print(wspace.var(""))
 
             model3D = wspace.pdf("model3D")
 
@@ -610,7 +618,7 @@ def yields_jpsidstar(yield_list=config.yield_files):
         Nevt total = {Nevts:.2f} 
         Nevt signal = {(nevts_signal_val):.2f} +- {(nevts_signal_error):.2f}
         Nevt bg  = {(nevts_background_val):.2f} +- {(nevts_background_error):.2f} 
-        Nevt non-prompt  = {(nevts_non_prompt_val):.2f} +- {(nevts_non_prompt_err):.2f} 
+        Nevt with non-prompt Jpsi  = {(nevts_non_prompt_val):.2f} +- {(nevts_non_prompt_err):.2f} 
         """
 
             print(msg)

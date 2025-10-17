@@ -5,7 +5,7 @@
 # 4: J/ψ prompt: change Resolution function to gaussian.
 # 5: D∗ background: change threshold function to phenomenological threshold function
 
-case = 1
+case = 5
 
 set = 'Charmonium_all_vtx0p05_sigma_eff_jpsi_pt_bin1_25_100'
 
@@ -21,6 +21,11 @@ if case == 1:
 
     jpsi_pdf = {'prompt' : 'resolG',  # prompt: resolG (default), GA (gaussian)
                 'non_prompt' : 'resol'} # non_prompt: resol (default), GA (gaussian)
+    
+    # Chi square
+    nparm_jpsi_mass = 6
+    nparm_jpsi_dl = 8
+    nparm_dstar = 8
 
 elif case == 2:
 
@@ -33,6 +38,11 @@ elif case == 2:
     jpsi_pdf = {'prompt' : 'resolG',  # prompt: resolG (default), GA (gaussian)
                 'non_prompt' : 'resol'} # non_prompt: resol (default), GA (gaussian)
     
+    # Chi square
+    nparm_jpsi_mass = 4
+    nparm_jpsi_dl = 8
+    nparm_dstar = 8
+    
 elif case == 3:
 
     dstar_pdf = {'signal': 'johnson', # signal: johnson (default), doubleG (?)
@@ -43,6 +53,11 @@ elif case == 3:
 
     jpsi_pdf = {'prompt' : 'resolG',  # prompt: resolG (default), GA (gaussian)
                 'non_prompt' : 'resol'} # non_prompt: resol (default), GA (gaussian)
+    
+    # Chi square
+    nparm_jpsi_mass = 7
+    nparm_jpsi_dl = 8
+    nparm_dstar = 8
     
 elif case == 4:
 
@@ -55,6 +70,11 @@ elif case == 4:
     jpsi_pdf = {'prompt' : 'GA',  # prompt: resolG (default), GA (gaussian)
                 'non_prompt' : 'resol'} # non_prompt: resol (default), GA (gaussian)
     
+    # Chi square
+    nparm_jpsi_mass = 6
+    nparm_jpsi_dl = 7
+    nparm_dstar = 8
+    
 elif case == 5:
 
     dstar_pdf = {'signal': 'johnson', # signal: johnson (default), doubleG (?)
@@ -65,6 +85,11 @@ elif case == 5:
 
     jpsi_pdf = {'prompt' : 'resolG',  # prompt: resolG (default), GA (gaussian)
                 'non_prompt' : 'resol'} # non_prompt: resol (default), GA (gaussian)
+    
+    # Chi square
+    nparm_jpsi_mass = 6
+    nparm_jpsi_dl = 8
+    nparm_dstar = 8
 
                                                                                                                                                                                                                                                                                                                                                        
 option={set : [{'fit_parameters' : {# Jpsi Mass
@@ -76,7 +101,7 @@ option={set : [{'fit_parameters' : {# Jpsi Mass
                                                      'frac_gauss_jpsi' : [3.13573e-01, 0.001, 1.0],  
                                                      #'frac_gauss_jpsi' : [0.0],  
                                                      'frac_cb' : [0.6, 0.0001, 1.0], 
-                                                     'alpha' : 1.4, #1.4
+                                                     'alpha' : 1.3, #1.4
                                                      'n' : 8.8, #(8.8)
                                                      'linear_coef0' : [1., -100., 100.],
                                                      'linear_coef1' : [-.01, -1., 1.],
@@ -141,11 +166,6 @@ option={set : [{'fit_parameters' : {# Jpsi Mass
 
 
 lumi = "126.8 fb^{-1}" # Run 2
-
-# Chi square
-nparm_jpsi_mass = 4
-nparm_jpsi_dl = 8
-nparm_dstar = 8
 
 # Dict with gourmetization for plotting
 colors = {"model" : 2, "signal" : 4, "background" : 3}
